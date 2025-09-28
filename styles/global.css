@@ -95,3 +95,44 @@ thead {
 	border-block-end: 0.2rem solid;
 	background-color: lightgray;
 }
+
+details {
+  margin: 1rem 0;
+  border: 0.1rem solid black;
+  padding: 0rem;
+}
+
+summary {
+  background-color: darkgray;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  list-style: none;
+}
+
+details[open] summary {
+  border-bottom: 1px solid black;
+}
+
+summary h2 {
+  text-align: left;
+  display: inline;
+}
+
+.details-content {
+  padding-left: 1rem;
+}
+
+dl {
+  margin: 1rem;
+  padding: 0;
+}
+
+dt {
+  border-bottom: 0.1rem black solid;
+  margin-bottom: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+dd {
+  margin-bottom: 1rem;
+}

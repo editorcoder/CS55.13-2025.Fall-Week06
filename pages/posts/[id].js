@@ -1,17 +1,17 @@
 /*
 editorcoder
-2025-09-23
+2025-09-27
 SRJC CS55.13 Fall 2025
-Week 5: Assignment 6: Final Basic Full-Stack App 
+Week 6: Assignment 7: Database Basics  
 [id].js
 */
 
 import Head from "next/head"; // Import Next.js Head component
-import Image from "next/image"; // Import Next.js Image component
 import Layout from "../../components/layout"; // Import shared page layout component
 import Date from "../../components/date"; // Import custom date formatting component
-import { getAllPostIds, getPostData } from "../../lib/posts-json"; // Import custom data helpers for posts
+import Image from "next/image"; // Import Next.js Image component
 import styles from "./posts.module.css"; // Import custom CSS module for post styles
+import { getAllPostIds, getPostData } from "../../lib/posts-firebase"; // Import custom data helpers for posts
 
 export default function Post({ postData }) {
   // Default export of the Post page component
@@ -35,7 +35,7 @@ export default function Post({ postData }) {
           />
         </div>
         <div
-          dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+          dangerouslySetInnerHTML={{ __html: postData.contentHTML }}
           className={styles.postBody}
         />
       </article>
@@ -45,7 +45,7 @@ export default function Post({ postData }) {
 
 export async function getStaticPaths() {
   // Next.js SSG: pre-generate dynamic routes
-  const paths = getAllPostIds(); // Get list of route params like { params: { id } }
+  const paths = await getAllPostIds(); // Get list of route params like { params: { id } }
   return {
     // Return paths and fallback behavior for SSG
     paths, // Array of route objects
